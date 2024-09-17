@@ -1,7 +1,6 @@
 use core::str;
-use std::{fs, usize};
-
-use cgmath::{num_traits::float, Vector2};
+use std::fs;
+use cgmath::Vector2;
 
 use crate::{DayFunc, DayRiddle};
 

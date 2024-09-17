@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fs};
+use std::fs;
 
 use crate::{DayFunc, DayRiddle};
 

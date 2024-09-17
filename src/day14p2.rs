@@ -139,7 +139,7 @@ fn tilt_platform(rocks: &Vec<Vec<bool>>, obstacles: &Vec<Vec<bool>>, tilt_dir: T
         TiltDir::East => {
             for y in 0..y_max {
                 let mut group_size = 0;
-                for x in (0..x_max) {
+                for x in 0..x_max {
                     if rocks[x][y] {
                         group_size += 1;
                     } else if obstacles[x][y] {
@@ -167,25 +167,4 @@ fn calculate_support(rocks_grid: &Vec<Vec<bool>>) -> usize {
     }
 
     sum
-}
-
-
-fn print_field(rocks: &Vec<Vec<bool>>, obstacles: &Vec<Vec<bool>>) {
-
-    let x_max = rocks.len();
-    let y_max = rocks[0].len();
-
-    for y in 0..y_max{
-        for x in 0..x_max {
-            if rocks[x][y] {
-                print!("O");
-            } else if obstacles[x][y] {
-                print!("#");
-            } else {
-                print!(".");
-            }
-        }
-        println!("");
-    }
-    
 }

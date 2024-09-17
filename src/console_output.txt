@@ -1,0 +1,127 @@
+solution name              : calc time      , result ok
+Day1-part1----------------------------------------
+First Try                  : 628.6µs        , true
+read_by_line               : 879.2µs        , true
+better_char_search         : 456.5µs        , true
+better_char_conversion     : 473.7µs        , true
+better_alloc               : 465µs          , true
+more_iterator              : 743.2µs        , true
+more_direct_access         : 322.3µs        , true
+experimental               : 483.5µs        , true
+Day1-part2----------------------------------------
+First Try                  : 3.2066ms       , true
+Day2-part1----------------------------------------
+First Try                  : 906µs          , true
+Day2-part2----------------------------------------
+First Try                  : 842.5µs        , true
+Day3-part1----------------------------------------
+First Try                  : 1.5501ms       , true
+Day3-part2----------------------------------------
+timvisee(not mine)         : 1.3188ms       , true
+expanded_part_1            : 3.2849ms       , true
+go_for_stars_first         : 2.0228ms       , true
+no_enum_conversion         : 902.4µs        , true
+Day4-part1----------------------------------------
+First Try                  : 1.6919ms       , true
+timvisee(not mine)         : 2.9292ms       , true
+Day4-part2----------------------------------------
+timvisee(not mine)         : 2.9563ms       , true
+based_on_p1                : 1.739ms        , true
+with_hashmap               : 1.9652ms       , true
+Day5-part1----------------------------------------
+First Try                  : 239µs          , true
+Day5-part2----------------------------------------
+First Try                  : 777.2µs        , true
+Day6-part1----------------------------------------
+First Try                  : 118µs          , true
+Day6-part2----------------------------------------
+First Try                  : 95.8µs         , true
+Day7-part1----------------------------------------
+First Try                  : 3.63ms         , true
+with_sorded_vec            : 3.7238ms       , true
+with_precalc_strength      : 3.3055ms       , true
+strength_no_structs        : 2.9032ms       , true
+strength_no_hash_map       : 1.4285ms       , true
+timvisee(not mine)         : 1.9471ms       , true
+Day7-part2----------------------------------------
+from_part_1                : 1.3919ms       , true
+timvisee(not mine)         : 1.9168ms       , true
+Day8-part1----------------------------------------
+first_try                  : 3.1783ms       , true
+Day8-part2----------------------------------------
+first_try                  : 21.747ms       , true
+Day9-part1----------------------------------------
+first_try                  : 3.1434ms       , true
+better_return_type         : 2.7294ms       , true
+Day9-part2----------------------------------------
+from_part_1                : 2.7488ms       , true
+Day10-part1----------------------------------------
+first_try                  : 3.2367ms       , true
+timvisee(not mine)         : 472.4µs        , true
+Day10-part2----------------------------------------
+first_try                  : 1.6604035s     , true
+timvisee(not mine)         : 1.4824ms       , true
+Day11-part1----------------------------------------
+first_try                  : 229.4498ms     , true
+Day11-part2----------------------------------------
+first_try                  : 233.0416ms     , true
+Day12-part1----------------------------------------
+first_try                  : 10.7812119s    , true
+do_not_alter_input         : 4.0517ms       , true
+dynamic_programming        : 14.7813ms      , true
+dynamic_programming2       : 17.2834ms      , true
+Day12-part2----------------------------------------
+dynamic_programming        : 210.4618ms     , true
+dynamic_programming2       : 219.465ms      , true
+Day13-part1----------------------------------------
+first_try                  : 428.3µs        , true
+Day13-part2----------------------------------------
+first_try                  : 495.4µs        , true
+Day14-part1----------------------------------------
+first_try                  : 553.5µs        , true
+Day14-part2----------------------------------------
+first_try                  : 174.5734ms     , true
+Day15-part1----------------------------------------
+first_try                  : 686.4µs        , true
+Day15-part2----------------------------------------
+first_try                  : 1.0568ms       , true
+Day16-part1----------------------------------------
+first_try                  : 2.1573ms       , true
+Day16-part2----------------------------------------
+first_try                  : 144.6944ms     , true
+Day17-part1----------------------------------------
+first_try                  : 11.1605198s    , true
+Day17-part2----------------------------------------
+first_try                  : 14.1254181s    , true
+Day18-part1----------------------------------------
+list_to_2D_conversion      : 8.5276ms       , true
+Day18-part2----------------------------------------
+firts_try                  : 849.5µs        , true
+ranjeethmahankali(not mine): 361.2µs        , true
+Day19-part1----------------------------------------
+first_try                  : 2.4963ms       , true
+Day19-part2----------------------------------------
+first_try                  : 2.0181ms       , true
+Day20-part1----------------------------------------
+first_try                  : 20.9618ms      , true
+Day20-part2----------------------------------------
+first_try                  : 104.6535ms     , true
+Day21-part1----------------------------------------
+first_try                  : 2.8646949s     , true
+no_back_step               : 341.9426ms     , true
+Day21-part2----------------------------------------
+first_try                  : 100.4477436s   , true
+Day22-part1----------------------------------------
+first_try                  : 20.9483ms      , true
+Day22-part2----------------------------------------
+first_try                  : 546.8871ms     , true
+Day23-part1----------------------------------------
+first_try                  : 1.5534981s     , true
+Day23-part2----------------------------------------
+make_a_pre_map             : 25.4510461s    , true
+Day24-part1----------------------------------------
+first_try                  : 2.4536ms       , true
+Day24-part2----------------------------------------
+first_try                  : 200ns          , true
+Day25-part1----------------------------------------
+Karger's algorithm         : 18.5290957s    , true

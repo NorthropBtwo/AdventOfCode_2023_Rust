@@ -1,7 +1,7 @@
 use core::str;
-use std::{collections::{HashMap, VecDeque}, fs, mem::swap, ops::Index, u32};
+use std::{fs, mem::swap};
 
-use cgmath::{MetricSpace, Vector2, Zero};
+use cgmath::Vector2;
 use itertools::Itertools;
 
 use crate::{DayFunc, DayRiddle};
@@ -108,7 +108,7 @@ pub fn first_try() -> u64 {
 }
 
 
-fn get_numer_of_points_within_reach(layout: &Vec<Vec<u8>>,points: &Vec<Vector2<isize>>,start_point: Vector2<isize>, steps_left: isize) -> u64 {
+fn get_numer_of_points_within_reach(_layout: &Vec<Vec<u8>>,points: &Vec<Vector2<isize>>,start_point: Vector2<isize>, steps_left: isize) -> u64 {
     let mut counter = 0;
     
     let mut print_points: Vec<Vector2<isize>> = vec![];
@@ -172,6 +172,7 @@ fn offset_coord_system(points: &mut Vec<Vector2<isize>>, offset: Vector2<isize>)
     }
 }
 
+#[allow(dead_code)]
 fn print_positons(layout : &Vec<Vec<u8>>, points: &Vec<Vector2<isize>>) {
     let mut layout = layout.clone();
 

@@ -150,6 +150,7 @@ struct Connection {
 }
 
 #[derive(Clone)]
+#[allow(dead_code)]
 struct Node {
     pub name: String,
     pub connection_indeces: Vec<usize>,

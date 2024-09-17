@@ -1,7 +1,5 @@
 use core::str;
-use std::{collections::{HashMap, VecDeque}, fs, ops::Index, u32};
-
-use cgmath::{Vector2, Zero};
+use std::{collections::{HashMap, VecDeque}, fs};
 
 use crate::{DayFunc, DayRiddle};
 

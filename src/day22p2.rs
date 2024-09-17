@@ -2,7 +2,6 @@ use core::str;
 use std::{collections::HashMap, fs, usize};
 
 use cgmath::{Vector2, Vector3};
-use slab_tree::{NodeId, NodeRef, Tree};
 
 use crate::{DayFunc, DayRiddle};
 

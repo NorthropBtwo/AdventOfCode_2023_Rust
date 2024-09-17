@@ -17,7 +17,7 @@ pub fn get_riddle() -> DayRiddle {
 
 pub fn get_function_list() -> Vec<DayFunc> {
     vec![
-        //DayFunc{name: "first_try", func : first_try},
+        //DayFunc{name: "first_try", func : first_try}, //this code is to slow
         DayFunc{name: "list_to_2D_conversion", func : list_to_2_d_conversion},
     ]
 }
@@ -52,7 +52,7 @@ impl Default for Area {
     }
 }
 
-
+#[allow(dead_code)]
 pub fn first_try() -> u64 {
     let input_string = fs::read_to_string(INPUT_PATH).unwrap();
 

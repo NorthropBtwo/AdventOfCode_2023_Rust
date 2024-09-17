@@ -1,4 +1,4 @@
-use std::{collections::{HashMap, VecDeque}, fs};
+use std::{collections::VecDeque, fs};
 
 use crate::{DayFunc, DayRiddle};
 

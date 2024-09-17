@@ -12,5 +12,4 @@ num-integer = "0.1.45"
 sorted-vec = "0.8.3"
 regex = {version="*", default-features = false}
 itertools = "0.13.0"
-slab_tree = "0.3.2"
 rand = "0.8.5"

@@ -1,7 +1,5 @@
 use core::str;
-use std::{collections::{HashMap, VecDeque}, fs, ops::Index, u32};
-
-use cgmath::{Vector2, Zero};
+use std::{collections::HashMap, fs, u32};
 
 use crate::{DayFunc, DayRiddle};
 
@@ -45,7 +43,7 @@ struct Condition {
 impl Condition {
     pub fn from_str(s: &str) -> Option<Condition> {
 
-        let mut con_parts= vec![];
+        let con_parts;
         let mut bigger = false;
 
         if s.contains('>') {

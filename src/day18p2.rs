@@ -1,4 +1,4 @@
-use std::{collections::BinaryHeap, fs, u32};
+use std::fs;
 
 use cgmath::{Vector2, Zero};
 
