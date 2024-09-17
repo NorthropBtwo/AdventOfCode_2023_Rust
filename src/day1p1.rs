@@ -26,11 +26,11 @@ pub fn get_function_list() -> Vec<DayFunc> {
     ]
 }
 
-pub fn solution() -> u32 {
+pub fn solution() -> u64 {
     55712
 }
 
-pub fn first_try() -> u32 {
+pub fn first_try() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -48,14 +48,14 @@ pub fn first_try() -> u32 {
                 }
                 sum += first.unwrap_or('0').to_digit(10).unwrap() * 10 + last.unwrap_or('0').to_digit(10).unwrap();
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }
     0
 }
 
-pub fn read_by_line() -> u32 {
+pub fn read_by_line() -> u64 {
     let mut sum = 0;
 
     let file = fs::File::open(INPUT_PATH).unwrap();
@@ -73,10 +73,10 @@ pub fn read_by_line() -> u32 {
         }
         sum += first.unwrap_or('0').to_digit(10).unwrap() * 10 + last.unwrap_or('0').to_digit(10).unwrap();
     }
-    sum
+    sum as u64
 }
 
-pub fn better_char_search() -> u32 {
+pub fn better_char_search() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -98,14 +98,14 @@ pub fn better_char_search() -> u32 {
                 }
                 sum += first.unwrap_or('0').to_digit(10).unwrap() * 10 + last.unwrap_or('0').to_digit(10).unwrap();
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }
     0
 }
 
-pub fn better_char_conversion() -> u32 {
+pub fn better_char_conversion() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -132,14 +132,14 @@ pub fn better_char_conversion() -> u32 {
                 }
                 sum += line_val;
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }
     0
 }
 
-pub fn better_alloc() -> u32 {
+pub fn better_alloc() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -166,14 +166,14 @@ pub fn better_alloc() -> u32 {
                 }
                 sum += line_val;
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }
     0
 }
 
-pub fn more_iterator() -> u32 {
+pub fn more_iterator() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -183,14 +183,14 @@ pub fn more_iterator() -> u32 {
                 let last = line.chars().rev().map(|x| x.to_digit(10)).flatten().next().unwrap_or(0);
                 sum += first*10 + last;
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }
     0
 }
 
-pub fn more_direct_access() -> u32 {
+pub fn more_direct_access() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -219,7 +219,7 @@ pub fn more_direct_access() -> u32 {
 
                 sum += line_val as u32;
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }
@@ -227,7 +227,7 @@ pub fn more_direct_access() -> u32 {
 }
 
 const FILE2: &[u8; 22422] = include_bytes!("./day1/input.txt");
-pub fn experimental() -> u32 {
+pub fn experimental() -> u64 {
     let mut sum: u32 = 0;
     for line in FILE2.split(|b| b == &b'\n') {
         let mut line_val = 0;
@@ -252,5 +252,5 @@ pub fn experimental() -> u32 {
         }
         sum += line_val as u32;
     }
-    sum
+    sum as u64
 }

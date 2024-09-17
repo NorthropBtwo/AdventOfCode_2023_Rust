@@ -19,11 +19,11 @@ pub fn get_function_list() -> Vec<DayFunc> {
     ]
 }
 
-pub fn solution() -> u32 {
+pub fn solution() -> u64 {
     2176
 }
 
-pub fn first_try() -> u32 {
+pub fn first_try() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {

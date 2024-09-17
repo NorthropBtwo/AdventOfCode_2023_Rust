@@ -20,11 +20,11 @@ pub fn get_function_list() -> Vec<DayFunc> {
     ]
 }
 
-pub fn solution() -> u32 {
+pub fn solution() -> u64 {
     63700
 }
 
-pub fn first_try() -> u32 {
+pub fn first_try() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -60,7 +60,7 @@ pub fn first_try() -> u32 {
                 }
                 sum += min_red * min_green * min_blue;
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }

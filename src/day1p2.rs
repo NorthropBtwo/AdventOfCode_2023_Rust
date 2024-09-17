@@ -19,11 +19,11 @@ pub fn get_function_list() -> Vec<DayFunc> {
     ]
 }
 
-pub fn solution() -> u32 {
+pub fn solution() -> u64 {
     55413
 }
 
-pub fn first_try() -> u32 {
+pub fn first_try() -> u64 {
     let contents = fs::read_to_string(INPUT_PATH);
     match contents {
         Ok(contents) => {
@@ -41,7 +41,7 @@ pub fn first_try() -> u32 {
                 }
                 sum += (first.unwrap_or(0) * 10 + last.unwrap_or(0)) as u32;
             }
-            return sum;
+            return sum as u64;
         },
         Err(error) => println!("{}", error),
     }

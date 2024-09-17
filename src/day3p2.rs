@@ -1,5 +1,7 @@
 use std::{fs, collections::HashMap, usize};
 
+use atoi::atoi;
+
 use crate::{DayFunc, DayRiddle};
 
 const INPUT_PATH: &str = "src/day3/input.txt";
@@ -15,13 +17,14 @@ pub fn get_riddle() -> DayRiddle {
 
 pub fn get_function_list() -> Vec<DayFunc> {
     vec![
-        DayFunc{name: "expanded_part_1", func : expanded_part_1},
         DayFunc{name: "timvisee(not mine)", func : timvisee},
+        DayFunc{name: "expanded_part_1", func : expanded_part_1},
         DayFunc{name: "go_for_stars_first", func : go_for_stars_first},
+        DayFunc{name: "no_enum_conversion", func : no_enum_conversion},
     ]
 }
 
-pub fn solution() -> u32 {
+pub fn solution() -> u64 {
     82818007
 }
 
@@ -185,12 +188,12 @@ impl Schematic {
 
 }
 
-pub fn expanded_part_1() -> u32 {
+pub fn expanded_part_1() -> u64 {
     let content = fs::read_to_string(INPUT_PATH);
     match content {
         Ok(content) => {
             let schematic = Schematic::new(&content);
-            return schematic.calculate_gear_ratio_sum();
+            return schematic.calculate_gear_ratio_sum() as u64;
         },
         Err(error) => println!("{}", error),
     }
@@ -198,7 +201,7 @@ pub fn expanded_part_1() -> u32 {
 }
 
 
-fn timvisee() -> u32 {
+fn timvisee() -> u64 {
     let inputs_string = fs::read_to_string(INPUT_PATH).unwrap();
     let map = inputs_string.as_bytes();
     let width = map.iter().position(|b| b == &b'\n').unwrap() as isize;
@@ -227,18 +230,18 @@ fn timvisee() -> u32 {
                     .product::<usize>()
             })
         })
-        .sum::<usize>() as u32
+        .sum::<usize>() as u64
     
 }
 
 
 
-pub fn go_for_stars_first() -> u32 {
+pub fn go_for_stars_first() -> u64 {
     let content: Result<String, std::io::Error> = fs::read_to_string(INPUT_PATH);
     match content {
         Ok(content) => {
             let schematic = Schematic::new(&content);
-            return schematic.calculate_gear_ratio_sum2();
+            return schematic.calculate_gear_ratio_sum2() as u64;
         },
         Err(error) => println!("{}", error),
     }
@@ -420,4 +423,124 @@ impl Schematic {
         gear_sum
     }
 
+}
+
+#[derive(Debug)]
+struct MapRange {
+    pub start : usize,
+    pub len: usize
+}
+
+pub fn no_enum_conversion() -> u64 {
+    let input_string = fs::read_to_string(INPUT_PATH).unwrap();
+    let map = input_string.as_bytes();
+    let mut gear_sum = 0;
+
+    let mut width = 0;
+    for i in 0..map.len() {
+        if map[i] == b'\n' {
+            width = i + 1;
+            break;
+        }
+    }
+
+    for y in (0..map.len()).step_by(width) {
+        for x in 0..(width-2) {
+            let cur = y + x;
+            let mut numbers = vec![];
+            if map[cur] == b'*' {
+                /* right */
+                if map[cur+1].is_ascii_digit() {
+                    let mut nr_len = 1;
+                    while map[cur+1+nr_len].is_ascii_digit() {
+                        nr_len += 1;
+                    }
+                    numbers.push(MapRange{start: cur+1, len: nr_len});
+                }
+                /* left */
+                if cur > 0 && map[cur-1].is_ascii_digit() {
+                    let mut nr_len = 1;
+                    while cur - nr_len > 0 && map[cur-1-nr_len].is_ascii_digit() {
+                        nr_len += 1;
+                    }
+                    numbers.push(MapRange{start: cur-nr_len, len: nr_len});
+                }
+                /* up */
+                if y > 0 {
+                    let above = cur-width;
+                    if map[above].is_ascii_digit() { /* only 1 number above possible */
+                        let mut left = 0;
+                        let mut right = 0;
+                        while map[above + 1 + right].is_ascii_digit() {
+                            right += 1;
+                        }
+                        while map[above - 1 - left].is_ascii_digit() {
+                            left += 1;
+                        }
+                        numbers.push(MapRange{start: above-left, len: right + left + 1});
+
+                    } else { /* 2 numbers above possible */
+                        if map[above+1].is_ascii_digit() { /* above right */
+                            let mut nr_len = 1;
+                            while map[above + 1 + nr_len].is_ascii_digit() {
+                                nr_len += 1;
+                            }
+                            numbers.push(MapRange{start: above + 1, len: nr_len});
+                        }
+                        if above-1 > 0 && map[above-1].is_ascii_digit() { /* above left */
+                            let mut nr_len = 1;
+                            while above - nr_len > 0  && map[above - 1 - nr_len].is_ascii_digit() {
+                                nr_len += 1;
+                            }
+                            numbers.push(MapRange{start: above - nr_len, len: nr_len});
+                        }
+                    }
+                }
+                /* down */
+                if cur+width < map.len() {
+                    let below = cur+width;
+                    if map[below].is_ascii_digit() { /* only 1 number below possible */
+                        let mut left = 0;
+                        let mut right = 0;
+                        while map[below + 1 + right].is_ascii_digit() {
+                            right += 1;
+                        }
+                        while map[below - 1 - left].is_ascii_digit() {
+                            left += 1;
+                        }
+                        numbers.push(MapRange{start: below-left, len: right + left + 1});
+
+                    } else { /* 2 numbers below possible */
+                        if map[below+1].is_ascii_digit() { /* below right */
+                            let mut nr_len = 1;
+                            while map[below + 1 + nr_len].is_ascii_digit() {
+                                nr_len += 1;
+                            }
+                            numbers.push(MapRange{start: below + 1, len: nr_len});
+                        }
+                        if map[below-1].is_ascii_digit() { /* above left */
+                            let mut nr_len = 1;
+                            while below - nr_len > 0  && map[below - 1 - nr_len].is_ascii_digit() {
+                                nr_len += 1;
+                            }
+                            numbers.push(MapRange{start: below - nr_len, len: nr_len});
+                        }
+                    }
+
+                }
+
+                if numbers.len() == 2 {
+                    let num1 = &numbers[0];
+                    let num1 = atoi::<u32>(&map[num1.start..(num1.start+num1.len)]).unwrap();
+
+                    let num2 = &numbers[1];
+                    let num2 = atoi::<u32>(&map[num2.start..(num2.start+num2.len)]).unwrap();
+
+                    gear_sum += num1 * num2;
+                }
+            }
+        }
+    }
+
+    gear_sum as u64
 }

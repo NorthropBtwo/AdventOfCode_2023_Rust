@@ -19,7 +19,7 @@ pub fn get_function_list() -> Vec<DayFunc> {
     ]
 }
 
-pub fn solution() -> u32 {
+pub fn solution() -> u64 {
     539637
 }
 
@@ -123,12 +123,12 @@ impl Schematic {
 
 }
 
-pub fn first_try() -> u32 {
+pub fn first_try() -> u64 {
     let content = fs::read_to_string(INPUT_PATH);
     match content {
         Ok(content) => {
             let schematic = Schematic::new(&content);
-            return schematic.calculate_sum_near_symbol();
+            return schematic.calculate_sum_near_symbol() as u64;
         },
         Err(error) => println!("{}", error),
     }
